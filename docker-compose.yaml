@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:latest
+    container_name: onboard_mongo
+    ports:
+      - "27017:27017"     # Exposes MongoDB on the default port
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: testuser         # MongoDB root user (optional)
+      MONGO_INITDB_ROOT_PASSWORD: password123      # MongoDB root password (optional)
+    volumes:
+      - mongo_data:/data/db                    # Persist MongoDB data
+
+volumes:
+  mongo_data:
